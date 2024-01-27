@@ -1,4 +1,5 @@
 const path = require("path");
+const webpack = require("webpack");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
@@ -10,7 +11,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
+        test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: ["babel-loader"],
       },
@@ -20,9 +21,18 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    extensions: ["*", ".js", ".jsx", ".css"],
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/index.html",
+    }),
+    new webpack.DefinePlugin({
+      "process.env": {
+        // This has effect on the react lib size
+        NODE_ENV: JSON.stringify("development"),
+      },
     }),
   ],
   devServer: {
