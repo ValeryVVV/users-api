@@ -5,31 +5,32 @@ import { getAlbumDetails } from "../../api/user-api";
 const AlbumDetails = () => {
     const [album, setAlbums] = useState([]);
 
-    const { movieId } = useParams();
+    const { userId } = useParams();
 
     useEffect(() => {
-    if (!movieId) return;
+    if (!userId) return;
     const getMoviesDetails = async id => {
         const receivedDetails = await getAlbumDetails(id);
         setAlbums(receivedDetails);
     };
-    getMoviesDetails(movieId);
-      }, [movieId]);
+    getMoviesDetails(userId);
+      }, [userId]);
     
 
     return (
         <>
             
-            {!album ? (
+        {!album ? (
                 <div>This movie is not found</div>
             ) : (
-                <>
-                    <ul key={album.id}>
-                        <li>
-                            <p>{album.id}</p>
-                            <p>{album.title}</p>
-                        </li>
-                    </ul>
+                    <>
+                        {album.map((d) => (
+                            <ul key={d.id}>
+                                <li>
+                                    <p>{d.title}</p>
+                                </li>
+                            </ul>
+                        ))}
                 </>
             )}
         </>

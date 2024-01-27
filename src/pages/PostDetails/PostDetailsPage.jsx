@@ -5,11 +5,11 @@ import { getPostIdDetails } from "../../api/user-api";
 const PostDetails = () => {
     const [data, setData] = useState([]);
 
-    const { movieId } = useParams();
+    const { userId } = useParams();
 
 
       useEffect(() => {
-    if (!movieId) return;
+    if (!userId) return;
     const getMoviesDetails = async id => {
       try {
         const receivedDetails = await getPostIdDetails(id);
@@ -18,23 +18,25 @@ const PostDetails = () => {
        console.log(err);
       }
     };
-    getMoviesDetails(movieId);
-      }, [movieId]);
+    getMoviesDetails(userId);
+      }, [userId]);
     
 
     return (
         <>
             
-            {data.length > 0 ? (
+            {!data ? (
                 <div>This movie is not found</div>
             ) : (
-                <>
-                    <ul key={data.id}>
-                        <li>
-                            <p>{data.title}</p>
-                            <p>{data.body}</p>
-                        </li>
-                    </ul>
+                    <>
+                        {data.map((d) => (
+                            <ul key={d.id}>
+                                <li>
+                                    <p>{d.title}</p>
+                                    <p>{d.body}</p>
+                                </li>
+                            </ul>
+                        ))}
                 </>
             )}
         </>

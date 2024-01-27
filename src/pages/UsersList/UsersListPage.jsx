@@ -24,7 +24,7 @@ const UsersList = ({ users }) => {
                                     <Typography>Email: {user.email}</Typography>
                             </CardContent>
                         <CardActions>
-                            <Link to={`${user.id}`}>View more details</Link>
+                            <Link to={`/users/${user.id}`}>View more details</Link>
                         </CardActions>
                         </Card>
                     </Grid>

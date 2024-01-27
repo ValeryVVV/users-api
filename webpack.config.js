@@ -7,6 +7,7 @@ module.exports = {
   output: {
     path: path.join(__dirname, "/dist"),
     filename: "index-bundle.js",
+    publicPath: "/",
   },
   module: {
     rules: [
@@ -38,5 +39,6 @@ module.exports = {
   devServer: {
     port: 3000,
     hot: true,
+    historyApiFallback: true,
   },
 };

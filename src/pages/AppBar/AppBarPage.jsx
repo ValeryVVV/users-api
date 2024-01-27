@@ -20,7 +20,7 @@ function AppBarPage() {
             </Link>
               <Box className={classes.headerNav}>
                 
-                <Link to="/" end className={`${classes.headerNavLink} ${classes.link} ${classes.current}`}>Home</Link>
+                  <Link to="/" className={`${classes.headerNavLink} ${classes.link} ${classes.current}`}>Home</Link>
             </Box>
         </Toolbar>
     </AppBar>
