@@ -1,47 +1,68 @@
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
+import { Avatar, Box, Divider, List, ListItem, ListItemAvatar, ListItemText, Typography } from "@mui/material";
+
 import { getPostIdDetails } from "../../api/user-api";
 
 const PostDetails = () => {
-    const [data, setData] = useState([]);
+    const [post, setPost] = useState([]);
 
     const { userId } = useParams();
 
 
       useEffect(() => {
     if (!userId) return;
-    const getMoviesDetails = async id => {
-      try {
+    const getPostDetails = async id => {
         const receivedDetails = await getPostIdDetails(id);
-        setData(receivedDetails);
-      } catch (err) {
-       console.log(err);
-      }
+        setPost(receivedDetails);
     };
-    getMoviesDetails(userId);
-      }, [userId]);
+    getPostDetails(userId);
+    }, [userId]);
     
 
     return (
         <>
             
-            {!data ? (
-                <div>This movie is not found</div>
+            {!post ? (
+                <div>This post is not found</div>
             ) : (
-                    <>
-                        {data.map((d) => (
-                            <ul key={d.id}>
-                                <li>
-                                    <p>{d.title}</p>
-                                    <p>{d.body}</p>
-                                </li>
-                            </ul>
-                        ))}
-                </>
+                <Box sx={{ m: 3 }}>
+                    {post.map((pos) => (
+                    <List sx={{ width: '100%' }} key={pos.id}>
+                        <ListItem alignItems="flex-start">
+                            <ListItemAvatar>
+                            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                            </ListItemAvatar>
+                            <ListItemText
+                            primary={
+                            <>
+                                <Typography
+                                    sx={{ display: 'inline' }}
+                                    component="span"
+                                    variant="body2"
+                                    color="text.primary"
+                                >
+                                    <Typography component="span" sx={{ fontWeight: 600}}>Title:</Typography> {pos.title}
+                                </Typography>
+                                <Typography
+                                    variant="body2"
+                                    color="text.primary"
+                                >
+                                    <Typography component="span" sx={{ fontWeight: 600}}>Body:</Typography>  {pos.body}
+                                </Typography>
+                            </>
+                            }
+                            />
+                        </ListItem>
+                        <Divider variant="inset" component="li" />
+                    </List>
+                    ))}
+
+                </Box>
             )}
         </>
     )
-
 };
 
 export default PostDetails;

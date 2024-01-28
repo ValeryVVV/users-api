@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, TextField, Typography } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
+
 import { useStyles } from "./FilterUserStyles";
 
 
@@ -10,7 +11,7 @@ const FilterUserName = ({ value, onChange }) => {
     return (
         <Box className={classes.container}>
             <Box className={classes.flex}>
-                <Typography className={classes.text}> Filter by folder name</Typography>
+                <Typography className={classes.text}>Filter by user name</Typography>
                 <TextField
                     size="small"
                     variant="outlined"

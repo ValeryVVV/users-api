@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Box, Container, Stack, Typography } from "@mui/material";
+import { Box, Button, Container, Stack, Typography } from "@mui/material";
 
 import { getUsers } from "../../api/user-api";
 import FilterUserName from "../FilterUsersName/FilterUserNamePage";
 import UsersList from "../UsersList/UsersListPage";
+import { useStyles } from "./HomePageStyles";
 
 const Home = () => {
     const [user, setUser] = useState([]);
@@ -23,13 +24,21 @@ const Home = () => {
 
     const getVisibleContacts = () => {
         const normalizedFilter = filter.toLowerCase();
-        return user.filter(contact =>
-            contact.username.toLowerCase().includes(normalizedFilter)
+        return user.filter(person =>
+            person.username.toLowerCase().includes(normalizedFilter)
         );
+    };
+
+    function handleSortByUserName() {
+        const sortedData = [...user].sort((a, b) => {
+            return a.username > b.username ? 1 : -1;
+        });
+        setUser(sortedData);
     };
         
     const visibleContacts = getVisibleContacts();
 
+    const classes = useStyles();
 
     return (
         <div>
@@ -57,6 +66,7 @@ const Home = () => {
                         justifyContent="center"
                     >
                         <FilterUserName value={filter} onChange={changeFilter} />
+                        <Button className={classes.button} size="small" onClick={handleSortByUserName}>Sort by user name</Button>
                     </Stack>
                 </Container>
             </Box>

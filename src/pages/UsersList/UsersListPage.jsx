@@ -1,14 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Button, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Box, Card, CardActions, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+
+import { useCardStyles } from "../../styles/CardStyles/CardStyles";
 
 const UsersList = ({ users }) => {
+
+    const classes = useCardStyles();
         return (
             <>
                 <Grid container spacing={4}>
                     {users.map((user) => (
                     <Grid item key={user.id} xs={12} sm={6} md={4}>
-                        <Card sx={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
+                        <Card className={classes.card}>
                             <CardMedia
                                 component="div"
                                 sx={{
@@ -16,15 +20,14 @@ const UsersList = ({ users }) => {
                                 }}
                                 image="https://source.unsplash.com/random?wallpapers"
                             />
-                                <CardContent sx={{ flexGrow: 1 }}>
-                                    <Typography sx={{ textAlign: 'center' }}>User Info:</Typography>
-                                     <Typography>Id: {user.id}</Typography>
-                                <Typography>Name: {user.name}</Typography>
-                                    <Typography>User Name: {user.username}</Typography>
-                                    <Typography>Email: {user.email}</Typography>
+                                <CardContent className={classes.cardContent}>
+                                    <Typography variant='h5' className={classes.title}>User Info</Typography>
+                                    <Typography><Box component="span" className={classes.textInfo}>Id:</Box> {user.id}</Typography>
+                                    <Typography><Box component="span" className={classes.textInfo}>User Name:</Box> {user.username}</Typography>
+                                    <Typography><Box component="span" className={classes.textInfo}>Email:</Box> {user.email}</Typography>
                             </CardContent>
                         <CardActions>
-                            <Link to={`/users/${user.id}`}>View more details</Link>
+                            <Link className={classes.link} to={`/users/${user.id}`}>View more details</Link>
                         </CardActions>
                         </Card>
                     </Grid>

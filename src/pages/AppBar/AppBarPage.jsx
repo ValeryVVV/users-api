@@ -13,15 +13,15 @@ function AppBarPage() {
     const classes = useStyles();
   return (
     <AppBar position="relative" elevation={0}>
-        <Toolbar className={classes.navBar} >
-            <Link to="#" className={`${classes.logo} ${classes.link}`}>
+          <Toolbar className={classes.navBar} >
+            <Link to="/" className={`${classes.logo} ${classes.link}`}>
                 <Box component="span" className={classes.logo}>User</Box>
                 <Box component="span" className={classes.logoBlack}>Info</Box>
-            </Link>
+              </Link>
+              
               <Box className={classes.headerNav}>
-                
                   <Link to="/" className={`${classes.headerNavLink} ${classes.link} ${classes.current}`}>Home</Link>
-            </Box>
+              </Box>
         </Toolbar>
     </AppBar>
   );

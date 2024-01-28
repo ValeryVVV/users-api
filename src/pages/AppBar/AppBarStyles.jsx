@@ -32,7 +32,7 @@ export const useStyles = makeStyles(({
             transition: 'color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
         },
     },
-        link: {
+    link: {
         textDecoration: 'none'
     },
     current: {
@@ -63,4 +63,3 @@ export const useStyles = makeStyles(({
     },
 
 }));
-
