@@ -6,6 +6,7 @@ import FooterPage from "../pages/Footer/FooterPage";
 const Home = lazy(() => import("../pages/Home/HomePage"));
 const UserDetails = lazy(() => import("../pages/UserDetails/UserDetailsPage"));
 const AppBarPage = lazy(() => import("../pages/AppBar/AppBarPage"));
+const NotFound = lazy(() => import("../pages/NotFoundPage/NotFoundPage"));
 
 export const App = () => {
   const defaultTheme = createTheme();
@@ -19,6 +20,8 @@ export const App = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/users/:userId/*" element={<UserDetails />} />
+
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
       <FooterPage />

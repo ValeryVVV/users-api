@@ -17,7 +17,7 @@
   "bugs": {
     "url": "https://github.com/ValeryVVV/users-api/issues"
   },
-  "homepage": "https://github.com/ValeryVVV/users-api#readme",
+  "homepage": "https://github.com/ValeryVVV/users-api",
   "devDependencies": {
     "@babel/core": "^7.23.9",
     "@babel/preset-env": "^7.23.9",
