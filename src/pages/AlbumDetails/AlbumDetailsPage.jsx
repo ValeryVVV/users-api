@@ -22,16 +22,16 @@ const AlbumDetails = () => {
 
     return (
         <>
-            
+        <Typography align="center" variant="h4">Album user information</Typography>
         {!album ? (
                 <div>This album is not found</div>
             ) : (
                 <Box sx={{ m: 3 }}>
-                    {album.map((data) => (
-                    <List sx={{ width: '100%' }} key={data.id}>
+                    {album.map(({ id, title }) => (
+                    <List sx={{ width: '100%' }} key={id}>
                         <ListItem alignItems="flex-start">
                             <ListItemAvatar>
-                            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                            <Avatar alt="Remy Sharp" />
                             </ListItemAvatar>
                             <ListItemText
                             primary={
@@ -42,7 +42,7 @@ const AlbumDetails = () => {
                                     variant="body2"
                                     color="text.primary"
                                 >
-                                    <Typography component="span" sx={{ fontWeight: 600}}>Title:</Typography> {data.title}
+                                    <Typography component="span" sx={{ fontWeight: 600}}>Title: </Typography> {title}
                                 </Typography>
                             </>
                             }

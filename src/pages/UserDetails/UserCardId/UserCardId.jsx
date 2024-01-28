@@ -8,10 +8,12 @@ const UsersCardId = ({ user }) => {
 
     const classes = useCardStyles();
     const location = useLocation();
+
+    const { id, name, phone, website } = user;
         return (
             <Container className={classes.container} maxWidth="sm">
                 <Grid container spacing={4}>
-                    <Grid item key={user.id} xs={14} sm={12} md={10}>
+                    <Grid item key={id} xs={14} sm={12} md={10}>
                         <Card className={classes.card}>
                             <CardMedia
                                 component="div"
@@ -20,12 +22,12 @@ const UsersCardId = ({ user }) => {
                             />
                                 <CardContent className={classes.cardContent}>
                                     <Typography variant='h5' className={classes.title}>Additional information</Typography>
-                                    <Typography><Box component="span" className={classes.textInfo}>Id:</Box> {user.id}</Typography>
-                                    <Typography><Box component="span" className={classes.textInfo}>Name:</Box> {user.name}</Typography>
-                                    <Typography><Box component="span" className={classes.textInfo}>Phone:</Box> {user.phone}</Typography>
-                                    <Typography><Box component="span" className={classes.textInfo}>website:</Box> {user.website}</Typography>
+                                    <Typography><Box component="span" className={classes.textInfo}>Id: </Box> {id}</Typography>
+                                    <Typography><Box component="span" className={classes.textInfo}>Name: </Box> {name}</Typography>
+                                    <Typography><Box component="span" className={classes.textInfo}>Phone: </Box> {phone}</Typography>
+                                    <Typography><Box component="span" className={classes.textInfo}>Website: </Box> {website}</Typography>
                             </CardContent>
-                        <CardActions>
+                        <CardActions className={classes.cardAction}>
                             <Link to='posts' state={{ from: location?.state?.from ?? '/' }}><Button className={classes.button} size="small">Post</Button></Link>
                             <Link to='albums' state={{ from: location?.state?.from ?? '/' }}><Button className={classes.button} size="small">Album</Button></Link>
                         </CardActions>

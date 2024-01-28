@@ -3,7 +3,7 @@ import { makeStyles } from '@mui/styles';
 
 export const useCardStyles = makeStyles(({
     container: {
-        margin: '50px'
+        margin: '30px'
     },
     title: {
         textAlign: 'center'
@@ -30,9 +30,21 @@ export const useCardStyles = makeStyles(({
     link: {
         color: '#2196f3'
     },
+    linkWrap: {
+        marginLeft: '10px',
+        marginBottom: '10px'
+    },
     button: {
         '&.MuiButton-root': {
             border: '1px solid #2196f3',
+        }
+    },
+    cardAction: {
+        display: 'flex',
+        justifyContent: 'center',
+        gap: '10px',
+        '&.MuiCardActions-root': {
+            paddingBottom: '15px',
         }
     }
 

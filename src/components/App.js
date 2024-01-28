@@ -1,7 +1,6 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import { Box, CssBaseline, ThemeProvider, createTheme } from "@mui/material";
-import FooterPage from "../pages/Footer/FooterPage";
 
 const Home = lazy(() => import("../pages/Home/HomePage"));
 const UserDetails = lazy(() => import("../pages/UserDetails/UserDetailsPage"));
@@ -24,7 +23,6 @@ export const App = () => {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </Suspense>
-      <FooterPage />
     </ThemeProvider>
   );
 };

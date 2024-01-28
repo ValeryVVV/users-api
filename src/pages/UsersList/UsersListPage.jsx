@@ -10,8 +10,8 @@ const UsersList = ({ users }) => {
         return (
             <>
                 <Grid container spacing={4}>
-                    {users.map((user) => (
-                    <Grid item key={user.id} xs={12} sm={6} md={4}>
+                    {users.map(({ id, username, email }) => (
+                    <Grid item key={id} xs={12} sm={6} md={4}>
                         <Card className={classes.card}>
                             <CardMedia
                                 component="div"
@@ -22,12 +22,12 @@ const UsersList = ({ users }) => {
                             />
                                 <CardContent className={classes.cardContent}>
                                     <Typography variant='h5' className={classes.title}>User Info</Typography>
-                                    <Typography><Box component="span" className={classes.textInfo}>Id:</Box> {user.id}</Typography>
-                                    <Typography><Box component="span" className={classes.textInfo}>User Name:</Box> {user.username}</Typography>
-                                    <Typography><Box component="span" className={classes.textInfo}>Email:</Box> {user.email}</Typography>
+                                    <Typography><Box component="span" className={classes.textInfo}>Id: </Box> {id}</Typography>
+                                    <Typography><Box component="span" className={classes.textInfo}>User Name: </Box> {username}</Typography>
+                                    <Typography><Box component="span" className={classes.textInfo}>Email: </Box> {email}</Typography>
                             </CardContent>
                         <CardActions>
-                            <Link className={classes.link} to={`/users/${user.id}`}>View more details</Link>
+                            <Link className={`${classes.linkWrap} ${classes.link}`} to={`/users/${id}`}>View more details</Link>
                         </CardActions>
                         </Card>
                     </Grid>

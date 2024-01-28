@@ -23,16 +23,16 @@ const PostDetails = () => {
 
     return (
         <>
-            
+            <Typography align="center" variant="h4">Post user information</Typography>
             {!post ? (
                 <div>This post is not found</div>
             ) : (
                 <Box sx={{ m: 3 }}>
-                    {post.map((pos) => (
-                    <List sx={{ width: '100%' }} key={pos.id}>
+                    {post.map(({ id, title, body }) => ( 
+                    <List sx={{ width: '100%' }} key={id}>
                         <ListItem alignItems="flex-start">
                             <ListItemAvatar>
-                            <Avatar alt="Remy Sharp" src="/static/images/avatar/1.jpg" />
+                            <Avatar alt="Remy Sharp" />
                             </ListItemAvatar>
                             <ListItemText
                             primary={
@@ -43,14 +43,12 @@ const PostDetails = () => {
                                     variant="body2"
                                     color="text.primary"
                                 >
-                                    <Typography component="span" sx={{ fontWeight: 600}}>Title:</Typography> {pos.title}
-                                </Typography>
+                                <Typography component="span" sx={{ fontWeight: 600}}>Title: </Typography>{title}</Typography>
                                 <Typography
                                     variant="body2"
                                     color="text.primary"
                                 >
-                                    <Typography component="span" sx={{ fontWeight: 600}}>Body:</Typography>  {pos.body}
-                                </Typography>
+                                <Typography component="span" sx={{ fontWeight: 600 }}>Body: </Typography>{body}</Typography>
                             </>
                             }
                             />
