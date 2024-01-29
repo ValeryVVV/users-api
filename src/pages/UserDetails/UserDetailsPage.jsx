@@ -6,7 +6,6 @@ import AlbumDetails from "../AlbumDetails/AlbumDetailsPage";
 import UsersCardId from "./UserCardId/UserCardId";
 import { Button, Typography } from "@mui/material";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { useCardStyles } from "../../styles/CardStyles/CardStyles";
 
 const UserDetails = () => {
     const [user, setUser] = useState([]);
