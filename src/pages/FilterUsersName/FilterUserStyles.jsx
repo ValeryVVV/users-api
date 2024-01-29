@@ -1,18 +1,19 @@
-import { makeStyles } from '@mui/styles';
+import { Typography } from '@mui/material';
+import { styled } from '@mui/system';
 
-export const useStyles = makeStyles(({
-    container: {
-        display: 'flex',
-        justifyContent: 'flex-start'
-    },
-    flex: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        gap: '10px',
-    },
-    text: {
-        fontWeight: 600,
-        fontSize: '16px',
-    },
-}));
+export const FilterBox = styled('div')({
+    display: 'flex',
+    justifyContent: 'flex-start'
+});
+
+export const FilterFlexBox = styled('div')({
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    gap: '10px',
+});
+
+export const FilterText = styled(Typography)({
+    fontWeight: 500,
+    fontSize: '16px',
+});

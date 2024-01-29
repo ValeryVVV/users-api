@@ -1,17 +1,18 @@
-import { makeStyles } from '@mui/styles';
+import { Button } from '@mui/material';
+import { styled } from '@mui/system';
 
-export const useStyles = makeStyles(({
-    btn: {
-        border: '1px solid black',
+export const ButtonStyled = styled(Button)({
+    border: '1px solid black',
         width: '100px',
         padding: '8px',
         textDecoration: 'none',
         marginBottom: '10px'
-    },
-    wrapper: {
-        display: 'flex',
-        justifyContent: 'center',
-        flexDirection: 'column',
-        alignItems: 'center'
-    },
-}));
+});
+
+export const Wrapper = styled('div')({
+    border: '1px solid black',
+        width: '100px',
+        padding: '8px',
+        textDecoration: 'none',
+        marginBottom: '10px'
+});

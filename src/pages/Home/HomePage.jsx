@@ -4,7 +4,7 @@ import { Box, Button, Container, Stack, Typography } from "@mui/material";
 import { getUsers } from "../../api/user-api";
 import FilterUserName from "../FilterUsersName/FilterUserNamePage";
 import UsersList from "../UsersList/UsersListPage";
-import { useStyles } from "./HomePageStyles";
+import { ButtonStyled } from "./HomePageStyles";
 
 const Home = () => {
     const [user, setUser] = useState([]);
@@ -38,8 +38,6 @@ const Home = () => {
         
     const visibleContacts = getVisibleContacts();
 
-    const classes = useStyles();
-
     return (
         <div>
             <Box
@@ -66,7 +64,7 @@ const Home = () => {
                         justifyContent="center"
                     >
                         <FilterUserName value={filter} onChange={changeFilter} />
-                        <Button className={classes.button} size="small" onClick={handleSortByUserName}>Sort by user name</Button>
+                        <ButtonStyled size="small" onClick={handleSortByUserName}>Sort by user name</ButtonStyled>
                     </Stack>
                 </Container>
             </Box>

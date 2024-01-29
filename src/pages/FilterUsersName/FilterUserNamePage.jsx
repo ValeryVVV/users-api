@@ -1,17 +1,16 @@
 import React from "react";
-import { Box, TextField, Typography } from "@mui/material";
+import { TextField } from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 
-import { useStyles } from "./FilterUserStyles";
+import { FilterBox, FilterText, FilterFlexBox } from "./FilterUserStyles";
 
 
 const FilterUserName = ({ value, onChange }) => {
-    const classes = useStyles();
 
     return (
-        <Box className={classes.container}>
-            <Box className={classes.flex}>
-                <Typography className={classes.text}>Filter by user name</Typography>
+        <FilterBox>
+            <FilterFlexBox>
+                <FilterText>Filter by user name</FilterText>
                 <TextField
                     size="small"
                     variant="outlined"
@@ -22,8 +21,8 @@ const FilterUserName = ({ value, onChange }) => {
                         startAdornment: <SearchIcon sx={{ pr: 1}}  position="start" />,
                     }}
                 />
-            </Box>
-        </Box>
+            </FilterFlexBox>
+        </FilterBox>
     )
 };
 
